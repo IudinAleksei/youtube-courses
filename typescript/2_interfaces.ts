@@ -25,3 +25,33 @@ const rect2: Rect = {
 }
 
 rect2.color = 'black'
+
+const rect3 = {} as Rect
+const rect4 = <Rect>{}
+
+// =============
+
+interface IClock {
+  time: Date
+  setTime(date: Date): void
+}
+
+class Clock implements IClock {
+  time: Date = new Date()
+
+  setTime(date: Date): void {
+    this.time = date
+  }
+}
+
+// ==============
+
+interface Styles {
+  [key: string]: string
+}
+
+const css: Styles = {
+  border: '1px solid black',
+  marginTop: '2px',
+  borderRadius: '5px'
+}
