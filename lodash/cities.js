@@ -15,3 +15,16 @@ const cities = require('./data.json');
 // =======================
 
 const greaterThan = _.curryRight(_.gte)
+const latGreaterThan = num => _.conforms({lat: greaterThan(num)})
+const zip = _.curry(_.zipObject)
+
+const out = _(cities)
+.filter(latGreaterThan(30))
+.countBy('country')
+.toPairs()
+.map(zip(['country', 'cities']))
+.orderBy('cities', 'desc')
+.take(6)
+.value()
+
+console.log(out)
