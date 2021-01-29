@@ -8,6 +8,7 @@ import { TodosService } from '../shared/todos.service';
 })
 export class TodosComponent implements OnInit {
   public loading = true;
+  public searchString: string = '';
 
   constructor(public todosService: TodosService) { }
 

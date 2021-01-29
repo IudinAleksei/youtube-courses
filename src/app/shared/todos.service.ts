@@ -31,4 +31,8 @@ export class TodosService {
   removeTodo(id: number): void {
     this.todos = this.todos.filter( todo => todo.id !== id);
   }
+
+  addTodo(todo: Todo): void {
+    this.todos.push(todo);
+  }
 }
