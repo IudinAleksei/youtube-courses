@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { delay } from 'rxjs/operators';
 import { TodosService } from '../shared/todos.service';
 @Component({
   selector: 'app-todos',
@@ -6,14 +7,24 @@ import { TodosService } from '../shared/todos.service';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
+  public loading = true;
 
   constructor(public todosService: TodosService) { }
 
   ngOnInit(): void {
+    this.todosService.fetchTodos()
+    .pipe(delay(500))
+    .subscribe( () => {
+      this.loading = false;
+    });
   }
 
   onChange(id: number): void {
     this.todosService.onToggle(id);
+  }
+
+  removeTodo(id: number): void {
+    this.todosService.removeTodo(id);
   }
 
 }
