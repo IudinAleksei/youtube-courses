@@ -9,7 +9,7 @@ import { Todo } from '../shared/todos.service';
 })
 export class TodoFormComponent implements OnInit {
 
-  title: string = '';
+  title = '';
 
   constructor(private todosService: TodosService) { }
 
