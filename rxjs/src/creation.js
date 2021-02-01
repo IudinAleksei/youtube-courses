@@ -1,4 +1,4 @@
-import {of, from, Observable, fromEvent} from 'rxjs';
+import {range, timer, interval} from 'rxjs';
 import { scan, map } from 'rxjs/operators';
 
 // const stream$ = of(1, 2, 3, 4);
@@ -45,21 +45,30 @@ import { scan, map } from 'rxjs/operators';
 //   }
 // })
 
-fromEvent(document.querySelector('canvas'), 'mousemove')
-  .pipe(
-    map(e => ({
-      x: e.offsetX,
-      y: e.offsetY,
-      ctx: e.target.getContext('2d')
-    }))
-  )
-  .subscribe(pos => {
-    pos.ctx.fillRect(pos.x, pos.y, 2, 2)
-  })
+// fromEvent(document.querySelector('canvas'), 'mousemove')
+//   .pipe(
+//     map(e => ({
+//       x: e.offsetX,
+//       y: e.offsetY,
+//       ctx: e.target.getContext('2d')
+//     }))
+//   )
+//   .subscribe(pos => {
+//     pos.ctx.fillRect(pos.x, pos.y, 2, 2)
+//   })
 
-  const clear$ =fromEvent(document.getElementById('clear'), 'click')
+//   const clear$ =fromEvent(document.getElementById('clear'), 'click')
 
-  clear$.subscribe(() => {
-    const canvas = document.querySelector('canvas')
-    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
-  })
+//   clear$.subscribe(() => {
+//     const canvas = document.querySelector('canvas')
+//     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+//   })
+// const sub = interval(500).subscribe(val => console.log(val))
+
+// setTimeout(() => {
+//   sub.unsubscribe()
+// }, 4000)
+
+// timer(2500).subscribe(val => console.log(val)
+
+range(42, 10).subscribe(val => console.log(val))
