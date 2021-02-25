@@ -52,7 +52,10 @@
         </button>
       </form>
 
-      <div v-if="contacts.length">
+      <div v-if="loading">
+        <loader />
+      </div>
+      <div v-else-if="contacts.length">
         <div class="card mb-3" v-for="contact in contacts">
           <div class="card-body">
             <h5
@@ -77,7 +80,7 @@
       </div>
       <p v-else>Контактов пока нет</p>
     </div>
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@3.0.6/dist/vue.global.prod.js"></script>
     <script type="module" src="frontend.js"></script>
   </body>
 </html>
