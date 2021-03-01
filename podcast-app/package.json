@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack serve --mode development --open",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/IudinAleksei/youtube-courses#readme",
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
     "webpack": "^5.24.2",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^5.2.0"
   }
 }
